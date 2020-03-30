@@ -1,0 +1,68 @@
+
+
+<html >
+<head>
+  <title>categories</title> 
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script src="jquery-ui/jquery-ui.js"></script>
+  <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  
+
+</head>
+<body>
+
+ <div class="container">
+<h1>categories</h1>
+<div class="slider-outer">
+<img src="images/left.png" class="prev" alt="Prev" style="width:50px">
+    <div class="slider-inner">
+    <img src="images/pulse.png" class="active" >
+    <img src="images/dairy.png" >
+    <img src="images/ghee.png" >
+    <img src="images/spices.png" >
+    </div>
+<img src="images/arrryt.png" class="next" alt="Next" style="width: 50px;">
+
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+
+  $(".next").on("click",function()
+{  console.log("hi");
+  var currentImg=$(".active");
+  var nextImg=currentImg.next();
+  if(nextImg.length)
+  {
+    currentImg.removeClass("active").css("z-index","-10");
+    nextImg.addClass("active").css("z-index","10");
+  }
+});
+
+
+$(".prev").on("click",function()
+{
+  var currentImg=$(".active");
+  var prevImg=currentImg.prev();
+  if(prevImg.length)
+  {
+    currentImg.removeClass("active").css("z-index","-10");
+    prevImg.addClass("active").css("z-index","10");
+  }
+});
+});
+</script>
+
+
+
+
+
+
+
+ 
+ 
+</body>
+</html>
