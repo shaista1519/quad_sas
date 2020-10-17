@@ -1,0 +1,52 @@
+Ninja is playing with his alphabet toys. He has all the 26 lowercase alphabets. His granny wanted him to learn some maths as well.
+So, she added a cost with each of the alphabets, gave him a cost array and gave him an integer. Let us denote the integer by symbol target. She asks Ninja to find the greatest word (with or without meaning) under the following constraints:
+1. The cost array is 0 indexed and cost of using alphabet at index i is given by cost[i] (Note: ‘a’ is denoted by index 0, ‘b’ is denoted by index 1 and so on)
+2. The total expenditure of characters used must be equal to target. 
+You have to help Ninja to print the greatest word. If you are unable to form any word, under the given constraints, then print “0”.
+Note: If two words are given to you, then the greater of the two will be the one which comes later in the dictionary. For example, “hi” is greater than “hello”.
+Input format:
+The first line of input contains 26 space separated integers. The first integer denotes the cost of selecting ‘a’, the second integer denotes the cost of selecting ‘b’ and so on. The following line contains an integer, that denotes the value of the target.
+Constraints:
+The length of the cost array is exactly equal to 26.
+The value of cost[i] lies in the range: [1, 10000].
+The value of the target lies in the range: [1, 10000].
+Time Limit: 1 second
+Output format:
+Print the greatest word under the given constraints. Print “0”, if you are unable to form any word.
+Sample Input 1:
+4 3 2 5 6 7 2 5 5 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+9
+Sample Output 1:
+igg
+Sample Input 2:
+14 13 12 15 16 17 12 15 15 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+9
+Sample Output 2:
+0
+
+alphacost=list(map(int,input().rstrip().split()))
+alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+target=int(input())
+f=0
+i=0
+str=""
+while(target>0):
+    maxvalue=0
+    k=0
+    for i in range(0,26):
+        if alphacost[i]<target:
+            maxvalue=i
+            f=1
+            k=1
+        else:
+            continue
+        
+    str=str+alphabet[maxvalue]
+    target=target-alphacost[maxvalue]
+    if k==0:
+        break;
+    
+if f==0:
+    print("0")          
+else:
+    print(str)    
